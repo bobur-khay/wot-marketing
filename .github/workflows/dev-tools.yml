@@ -48,7 +48,7 @@ jobs:
       - name: Create Issue if Diff Exists
         if: steps.check_diff.outputs.has_diff == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Write issue body to a file to handle multiline safely
           cat << 'EOF' > issue_body.md
