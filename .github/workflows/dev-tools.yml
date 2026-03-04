@@ -29,6 +29,9 @@ jobs:
 
       - name: Run dev-tools
         working-directory: ./scripts
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: npm run dev-tools
 
       - name: Check for differences
