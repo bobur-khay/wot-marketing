@@ -1,0 +1,15 @@
+diff --git a/docs/_data/generated/devToolsOutput.json b/docs/_data/generated/devToolsOutput.json
+index 4ef8b82..a3d69db 100644
+--- a/docs/_data/generated/devToolsOutput.json
++++ b/docs/_data/generated/devToolsOutput.json
+@@ -235,8 +235,8 @@
+           "isObsolete": false
+         },
+         {
+-          "name": "Domus TDD API",
+-          "description": "A Python and SPARQL based Thing Description Directory API compliant to: https://www.w3.org/TR/wot-discovery/",
++          "name": "Motivation",
++          "description": "According to World History Encyclopedia the",
+           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
+           "languages": [
+             "Python"
