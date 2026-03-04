@@ -43,7 +43,6 @@ jobs:
           # which git diff --quiet handles for unstaged/staged differences.
           if ! git diff --quiet; then
             echo "has_diff=true" >> $GITHUB_OUTPUT
-            git diff > changes.diff
           else
             echo "has_diff=false" >> $GITHUB_OUTPUT
           fi
