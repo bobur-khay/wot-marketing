@@ -9,10 +9,10 @@ jobs:
   run-dev-tools:
     runs-on: ubuntu-latest
     
-    # Needs permissions to create an issue
+    # Needs permissions to create a pull request
     permissions:
-      contents: read
-      issues: write
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -48,31 +48,26 @@ jobs:
             echo "has_diff=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create Issue if Diff Exists
+      - name: Create Pull Request if Diff Exists
         if: steps.check_diff.outputs.has_diff == 'true'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # Write issue body to a file to handle multiline safely
-          cat << 'EOF' > issue_body.md
-          The monthly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct.
-
-          <details>
-          <summary>View changes diff</summary>
-
-          \`\`\`diff
-          EOF
+          BRANCH_NAME="chore/dev-tools-update-${{ github.run_id }}"
           
-          # Append up to 1000 lines of diff
-          head -n 1000 changes.diff >> issue_body.md
-
-          cat << 'EOF' >> issue_body.md
-          \`\`\`
-
-          </details>
-          EOF
+          # Setup git config
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          gh issue create \
+          # Commit and push changes
+          git checkout -b $BRANCH_NAME
+          git add .
+          git commit -m "Automated: Monthly Dev Tools Update Changes"
+          git push -u origin $BRANCH_NAME
+          
+          # Create Pull Request
+          gh pr create \
             --title "Automated: Monthly Dev Tools Update Changes" \
-            --body-file issue_body.md \
-            --label "automated"
+            --body "The monthly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct." \
+            --label "automated" \
+            --base main
