@@ -1,14 +1,15 @@
 import { config } from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
-import { devToolsInput, type ToolInput } from '../docs/_data/devToolsInput.ts';
-import { writeFileSync } from 'fs';
+import { devToolsInput } from './devToolsInput.ts';
+import { writeFileSync, mkdirSync } from 'fs';
 import { Octokit } from 'octokit';
+import { DevToolsOutput, RepoData, ToolInput, ToolOutput } from './types.ts';
 
 // Configure environment variables
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-config({ path: resolve(__dirname, '../.env') });
+config({ path: resolve(__dirname, '../../.env') });
 
 // GitHub and GitLab client init
 const githubToken = process.env.GH_TOKEN;
@@ -21,39 +22,6 @@ const octokit = new Octokit({
 const gitlabToken = process.env.GITLAB_TOKEN;
 if (!gitlabToken) {
   throw new Error('GITLAB_TOKEN is not defined');
-}
-
-// Main output of tools with grouping
-interface DevToolsOutput {
-  [groupName: string]: {
-    [subGroupName: string]: {
-      description: string;
-      tools: ToolOutput[];
-    };
-  };
-}
-// A single tool structure
-interface ToolOutput {
-  name: string;
-  description: string;
-  languages: string[];
-  // linked to .github/workflows/dev-tools.yml
-  // if changed, update the workflow file
-  lastUpdated: string | null;
-  license: string | null;
-  repoUrl: string | null;
-  affiliation: string | null;
-  homepageUrl: string | null;
-  platforms: string[];
-}
-// Data retrieved from a GitLab/GitHub repo
-interface RepoData {
-  name: string | null;
-  description: string | null;
-  languages: string[];
-  lastUpdated: string;
-  homepageUrl: string | null;
-  license: string | null;
 }
 
 // Main script (called in the end of the file)
@@ -73,11 +41,10 @@ async function fetchDevTools() {
 
   // Save the fetched data in devToolsOutput.json
   try {
-    writeFileSync(
-      resolve(__dirname, '../docs/_data/generated/devToolsOutput.json'),
-      JSON.stringify(outputJSON, null, 2)
-    );
-    console.log('/docs/_data/generated/devToolsOutput.json successfully generated');
+    const outputPath = resolve(__dirname, '../website/lib/generated/devToolsOutput.json');
+    mkdirSync(dirname(outputPath), { recursive: true });
+    writeFileSync(outputPath, JSON.stringify(outputJSON, null, 2));
+    console.log('website/lib/generated/devToolsOutput.json successfully generated');
   } catch (error) {
     console.error('Could not save the output file:', error);
   }
