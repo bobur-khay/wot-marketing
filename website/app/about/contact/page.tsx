@@ -2,7 +2,18 @@
 import { LinkCard } from '@/app/_components/LinkCard';
 import { PageLayout } from '@/app/_components/PageLayout';
 import { CONTACTS } from '@/lib/contacts';
-import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Input, Stack, Textarea, Typography } from '@mui/joy';
+import {
+  Alert,
+  Box,
+  Button,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Input,
+  Stack,
+  Textarea,
+  Typography,
+} from '@mui/joy';
 import { MastodonFeed } from '@/app/_components/home-page-sections/MastodonFeed';
 import { FormEvent, useState } from 'react';
 
@@ -80,7 +91,7 @@ export default function Contact() {
       <Stack component="form" onSubmit={handleSubmit} gap={2} maxWidth="720px">
         <Stack gap={0.5}>
           <Typography level="h3" color="primary">
-            Send a demo email
+            Send an email
           </Typography>
           <Typography level="body-md">
             Share a quick note with the WoT team. This demo form posts to a local API endpoint before it is sent.
