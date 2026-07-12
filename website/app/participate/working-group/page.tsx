@@ -3,7 +3,7 @@
 import { LinkCard } from '@/app/_components/LinkCard';
 import { PageLayout } from '@/app/_components/PageLayout';
 import { PageSection } from '@/app/_components/PageSection';
-import { CARD_LINKS, TIMEZONES } from '@/lib/workingGroup';
+import { WG_CARD_LINKS, TIMEZONES } from '@/lib/wgCardLinks';
 import { Box, Link, Option, Select, Stack, Typography } from '@mui/joy';
 import { Globe, Mail } from 'lucide-react';
 import { useState } from 'react';
@@ -54,45 +54,13 @@ export default function WorkingGroupPage() {
             mb: 4,
           }}
         >
-          {CARD_LINKS.map((link) => (
+          {WG_CARD_LINKS.map((link) => (
             <LinkCard key={link.label} size="lg" {...link} />
           ))}
         </Box>
       </PageSection>
       <PageSection title="Web Conference Meetings">
-        <Typography mb={2}>
-          We have grouped our weekly meetings in the table below. We also recommend you to use{' '}
-          <Link href="https://www.w3.org/groups/ig/wot/calendar">the W3C calendar</Link> system in order to download ICS
-          files for all our meetings.
-        </Typography>
-        <Stack gap={2} direction="row" alignItems="baseline" mb={2}>
-          <Typography level="title-md">Select Timezone:</Typography>
-          <Select
-            size="sm"
-            defaultValue="browser"
-            value={timezone}
-            onChange={(_, newValue) => setTimezone(newValue ?? '')}
-          >
-            {TIMEZONES.map((option) => (
-              <Option key={option.value} value={option.value}>
-                {option.label}
-              </Option>
-            ))}
-          </Select>
-        </Stack>
-
-        <iframe
-          id="open-web-calendar"
-          style={{
-            background:
-              "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
-          }}
-          src={`https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https://www.w3.org/groups/wg/wot/calendar/export&start_of_week=work&plugin_event_tooltip=false&style-event-status-cancelled=true&style-event-status-confirmed=true&style-event-status-tentative=true${timezone !== 'browser' ? `&timezone=${timezone}` : ''}`}
-          sandbox="allow-scripts allow-same-origin allow-popups"
-          frameBorder="0"
-          height="810px"
-          width="100%"
-        ></iframe>
+        <Meeting
       </PageSection>
     </PageLayout>
   );

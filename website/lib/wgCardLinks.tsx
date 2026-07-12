@@ -1,7 +1,7 @@
 import { LogIn, FileText, Mail, Users, UserCog, CalendarDays } from 'lucide-react';
 import { Route } from 'next';
 
-export const CARD_LINKS = [
+export const WG_CARD_LINKS = [
   {
     icon: <LogIn />,
     label: 'Join',
