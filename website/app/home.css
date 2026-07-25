@@ -695,7 +695,9 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 300ms ease, opacity 220ms ease;
+  transition:
+    grid-template-rows 300ms ease,
+    opacity 220ms ease;
 }
 .member-accordion.is-open .accordion-content {
   grid-template-rows: 1fr;

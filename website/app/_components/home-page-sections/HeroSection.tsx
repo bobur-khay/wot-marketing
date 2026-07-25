@@ -12,6 +12,36 @@ import {
   Zap,
 } from 'lucide-react';
 
+export function HeroSection() {
+  return (
+    <section className="hero">
+      <div className="shell heroGrid">
+        <div>
+          <p className="eyebrow">AN OPEN STANDARD FOR AN INTEROPERABLE IOT</p>
+          <h1>
+            One web
+            <br />
+            <em>Every thing</em>
+          </h1>
+          <p className="lede">
+            W3C Web of Things makes connected products discoverable, understandable, and usable across platforms,
+            protocols, and industries.
+          </p>
+          <div className="actions">
+            <Link href="/participate/working-group">
+              Participate <ArrowRight />
+            </Link>
+            <Link href="/developers/documentation" className="outline">
+              Discover how it works
+            </Link>
+          </div>
+        </div>
+        <HeroVisual />
+      </div>
+    </section>
+  );
+}
+
 function HeroVisual() {
   return (
     <div className="visual">
@@ -71,35 +101,5 @@ function HeroVisual() {
         <small>HTTP · MQTT · CoAP · OPC UA · WebSocket · Modbus · BACnet</small>
       </div>
     </div>
-  );
-}
-
-export function HeroSection() {
-  return (
-    <section className="hero">
-      <div className="shell heroGrid">
-        <div>
-          <p className="eyebrow">AN OPEN STANDARD FOR AN INTEROPERABLE IOT</p>
-          <h1>
-            One web.
-            <br />
-            <em>Every thing.</em>
-          </h1>
-          <p className="lede">
-            W3C Web of Things makes connected products discoverable, understandable, and usable across platforms,
-            protocols, and industries.
-          </p>
-          <div className="actions">
-            <Link href="/participate/working-group">
-              Participate <ArrowRight />
-            </Link>
-            <Link href="/developers/documentation" className="outline">
-              Discover how it works
-            </Link>
-          </div>
-        </div>
-        <HeroVisual />
-      </div>
-    </section>
   );
 }

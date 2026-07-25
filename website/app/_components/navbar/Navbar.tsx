@@ -69,13 +69,14 @@ export function Navbar() {
       <Card
         variant="plain"
         sx={{
+          backdropFilter: 'blur(7px)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           boxShadow: '0 8px 30px rgba(7, 29, 43, .08)',
           borderRadius: 0,
           borderBottom: '1px solid #dbe7ea',
-          backgroundColor: '#fff',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
           px: { xs: 1.5, md: 3 },
           py: 1.25,
           position: 'relative',
