@@ -69,7 +69,7 @@ export function Navbar() {
       <Card
         variant="plain"
         sx={{
-          backdropFilter: 'blur(7px)',
+          backdropFilter: 'blur(10px)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -77,7 +77,7 @@ export function Navbar() {
           borderRadius: 0,
           borderBottom: '1px solid #dbe7ea',
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          px: { xs: 1.5, md: 3 },
+          px: 2,
           py: 1.25,
           position: 'relative',
           zIndex: 10, // Ensures the Card stays above the subnavigation
@@ -95,9 +95,13 @@ export function Navbar() {
             style={{ minWidth: '250px', textDecoration: 'none' }}
             onClick={() => setIsSubnavigationOpen(false)}
           >
-            <Stack direction="row" alignItems="center" gap={2}>
-              <Image src={wotLogo} width={80} alt="W3C WoT Logo" />
-              <Typography level="h3" color="primary" sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Stack direction="row" alignItems="baseline" gap={{ xs: 1, xl: 2 }}>
+              <Image src={wotLogo} width={80} style={{ alignSelf: 'center' }} alt="W3C WoT Logo" />
+              <Typography
+                level="h3"
+                color="primary"
+                sx={{ display: { xs: 'none', sm: 'block', whiteSpace: 'nowrap' } }}
+              >
                 Web of Things
               </Typography>
             </Stack>

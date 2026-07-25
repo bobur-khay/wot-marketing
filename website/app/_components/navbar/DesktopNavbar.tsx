@@ -50,6 +50,7 @@ export function DesktopNavbar({
                   }}
                 />
               }
+              sx={{ whiteSpace: 'nowrap' }}
               onClick={() => {
                 toggleSubnavigation(page);
               }}
@@ -62,6 +63,7 @@ export function DesktopNavbar({
               path={page.path}
               color={isSubPath(pathName, page.path) ? 'primary' : 'neutral'}
               variant="plain"
+              sx={{ whiteSpace: 'nowrap' }} // LinkButton defaults to wrapping labels
               onClick={() => setIsSubnavigationOpen(false)}
             >
               {page.label}
