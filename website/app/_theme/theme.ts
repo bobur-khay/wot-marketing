@@ -1,5 +1,11 @@
 import { extendTheme } from '@mui/joy';
 
+declare module '@mui/joy/styles' {
+  interface TypographySystemOverrides {
+    'title-xs': true;
+  }
+}
+
 export const theme = extendTheme({
   fontFamily: { body: 'Arial, Helvetica, sans-serif', display: 'Arial, Helvetica, sans-serif' },
   radius: { sm: '6px', md: '8px', lg: '12px' },
@@ -10,9 +16,12 @@ export const theme = extendTheme({
     'body-lg': {
       lineHeight: '1.65',
     },
+    'title-xs': {
+      fontSize: 'var(--joy-fontSize-xs, 0.67rem)',
+      fontWeight: '700',
+    },
     'title-sm': {
       fontWeight: '800',
-      letterSpacing: '0.14em',
     },
     'title-md': {
       fontWeight: '600',
@@ -35,6 +44,7 @@ export const theme = extendTheme({
     },
   },
   fontSize: {
+    xs: '0.67rem',
     sm: '0.72rem',
     lg: 'clamp(1rem,1.7vw,1.22rem)',
     xl2: 'clamp(2rem, 4vw, 4rem)',

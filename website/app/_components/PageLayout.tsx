@@ -23,11 +23,11 @@ export function PageLayout({ children, ...props }: PropsWithChildren<PageLayoutP
       <SizeAdapter
         sx={{
           position: 'relative',
-          py: { xs: 8, sm: 14 },
+          py: { xs: 4, sm: 14 },
           px: { xs: 2, sm: 4 },
           background: {
             xs: 'radial-gradient(circle at 75% 70%, #08718e, #063750 42%, #061b2c 75%)',
-            sm: 'radial-gradient(circle at 85% 40%, #08718e, #063750 42%, #061b2c 75%)',
+            sm: 'radial-gradient(circle at 80% 50%, #08718e, #063750 42%, #061b2c 75%)',
           },
         }}
       >
