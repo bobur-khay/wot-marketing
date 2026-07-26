@@ -46,11 +46,10 @@ export function DesktopSubnavigation({
         borderTopRightRadius: '0px',
         borderBottomLeftRadius: '12px',
         borderBottomRightRadius: '12px',
-        borderColor: '#d8e5e8',
-        backgroundColor: 'rgba(255,255,255,.98)',
         transition: 'transform 0.15s ease-out, opacity 0.15s ease-out',
         paddingTop: '70px',
         boxShadow: 'lg',
+        backgroundColor: 'white',
       }}
     >
       <Stack direction="row" alignItems="center" justifyContent="space-between" gap={4} p={2}>

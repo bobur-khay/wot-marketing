@@ -17,12 +17,16 @@ export function PageLayout({
 }>) {
   return (
     // Page container
-    <Stack>
+    <Stack pb={16}>
       {/* Header */}
       <SizeAdapter
         sx={{
-          py: { xs: 6, sm: 9 },
-          background: 'radial-gradient(circle at 75% 40%, #08718e, #063750 42%, #061b2c 75%)',
+          position: 'relative',
+          py: { xs: 8, sm: 14 },
+          background: {
+            xs: 'radial-gradient(circle at 75% 70%, #08718e, #063750 42%, #061b2c 75%)',
+            sm: 'radial-gradient(circle at 85% 40%, #08718e, #063750 42%, #061b2c 75%)',
+          },
         }}
       >
         {/* Background grid */}
@@ -36,22 +40,22 @@ export function PageLayout({
             maskImage: 'linear-gradient(90deg, transparent, #000)',
           }}
         />
-        <Stack gap={1.5}>
+        <Stack gap={1.5} sx={{ maxWidth: '900px' }}>
           {breadcrumbs && <NavBreadcrumbs startingPath={breadcrumbs.startingPath} currentPageTitle={title} />}
           <Stack gap={0.5}>
             <Typography level="h2" sx={{ color: 'white' }}>
               {title}
             </Typography>
-            <Typography level="title-md" sx={{ color: 'lightgray' }}>
+            <Typography level="title-lg" sx={{ color: '#c7e0e7' }}>
               {subtitle}
             </Typography>
           </Stack>
-          {banner && <Box mt={1}>{banner}</Box>}
+          {banner && <Box mt={2}>{banner}</Box>}
         </Stack>
       </SizeAdapter>
 
       {/* Content */}
-      <SizeAdapter>{children}</SizeAdapter>
+      <SizeAdapter sx={{ pt: { xs: 5, sm: 10 } }}>{children}</SizeAdapter>
     </Stack>
   );
 }
@@ -62,7 +66,7 @@ export function PageLayout({
 function SizeAdapter({ children, sx }: PropsWithChildren<{ sx?: SxProps }>) {
   return (
     <Stack alignItems="center" sx={{ width: '100%', px: 2, ...sx }}>
-      <Stack sx={{ maxWidth: '1200px', width: '100%' }}>{children}</Stack>
+      <Stack sx={{ maxWidth: '1200px', width: '100%', gap: 12 }}>{children}</Stack>
     </Stack>
   );
 }

@@ -4,6 +4,10 @@ export const theme = extendTheme({
   fontFamily: { body: 'Arial, Helvetica, sans-serif', display: 'Arial, Helvetica, sans-serif' },
   radius: { sm: '6px', md: '8px', lg: '12px' },
   typography: {
+    'title-lg': {
+      fontWeight: 'normal',
+      lineHeight: '1.65',
+    },
     h1: {
       letterSpacing: '-.07em',
     },
@@ -12,6 +16,7 @@ export const theme = extendTheme({
     },
   },
   fontSize: {
+    lg: 'clamp(1rem,1.7vw,1.22rem)',
     xl4: 'clamp(4rem, 8vw, 7rem)',
     xl3: 'clamp(3rem,6vw,5.5rem)',
   },

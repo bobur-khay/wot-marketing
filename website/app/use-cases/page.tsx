@@ -7,13 +7,11 @@ import {
   Typography,
   Stack,
   Box,
-  Alert,
   Accordion,
   AccordionDetails,
   AccordionSummary,
   AccordionGroup,
 } from '@mui/joy';
-import { HardHat } from 'lucide-react';
 import { RESOURCES, DOMAINS, TECH_TRENDS, TESTIMONIALS, Domain, Testimonial } from '@/lib/useCases';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
@@ -23,19 +21,6 @@ export default function UseCasesPage() {
     <PageLayout
       title="WoT Use Cases"
       subtitle="Explore how the Web of Things is applied across industries, from smart manufacturing and energy management to connected buildings and beyond"
-      banner={
-        <Alert variant="outlined" color="warning" startDecorator={<HardHat size={24} />}>
-          <Box>
-            <Typography level="title-sm" color="warning">
-              This page is under construction
-            </Typography>
-            <Typography level="body-sm" color="warning">
-              We are actively expanding this section. In the meantime, check out the resources below for comprehensive
-              information about WoT use cases.
-            </Typography>
-          </Box>
-        </Alert>
-      }
     >
       <Stack gap={2}>
         <PageSection title="Resources & References" id="resources">

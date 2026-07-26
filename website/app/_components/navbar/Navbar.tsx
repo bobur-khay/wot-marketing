@@ -73,23 +73,19 @@ export function Navbar() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          boxShadow: '0 8px 30px rgba(7, 29, 43, .08)',
+          boxShadow: isSubnavigationOpen ? 'none' : '0 8px 30px rgba(7, 29, 43, .08)',
           borderRadius: 0,
           borderBottom: '1px solid #dbe7ea',
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          px: 2,
+          px: { xs: 2, sm: 4 },
           py: 1.25,
           position: 'relative',
           zIndex: 10, // Ensures the Card stays above the subnavigation
           minHeight: '67.5px',
+          transition: 'box-shadow 0.3s ease-out',
         }}
       >
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="baseline"
-          sx={{ width: '100%', maxWidth: '1440px' }}
-        >
+        <Stack direction="row" justifyContent="space-between" alignItems="baseline" sx={{ width: '100%' }}>
           <Link
             href="/"
             style={{ minWidth: '250px', textDecoration: 'none' }}
@@ -100,7 +96,10 @@ export function Navbar() {
               <Typography
                 level="h3"
                 color="primary"
-                sx={{ display: { xs: 'none', sm: 'block', whiteSpace: 'nowrap' } }}
+                sx={{
+                  display: { xs: 'none', sm: 'block', whiteSpace: 'nowrap' },
+                  fontSize: { xs: '1.25rem', xl: '1.5rem' },
+                }}
               >
                 Web of Things
               </Typography>
