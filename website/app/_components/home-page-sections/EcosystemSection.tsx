@@ -9,7 +9,7 @@ const groups = Object.entries(memberOrganizations);
 const membershipCount = groups.reduce((total, [, members]) => total + members.length, 0);
 
 export function EcosystemSection() {
-  const [openGroups, setOpenGroups] = useState(() => new Set([groups[0][0], groups[1][0]])); // Open the first two groups by default
+  const [openGroups, setOpenGroups] = useState(() => new Set([groups[0][0]])); // Open the first group by default
 
   function toggleGroup(group: string) {
     setOpenGroups((current) => {

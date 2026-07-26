@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   keywords: ['W3C', 'Web of Things', 'WoT', 'IoT', 'interoperability', 'open standards'],
 };
 
+/**
+ * Layout of the website
+ */
 export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">

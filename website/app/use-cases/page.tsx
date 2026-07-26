@@ -23,7 +23,7 @@ export default function UseCasesPage() {
       subtitle="Explore how the Web of Things is applied across industries, from smart manufacturing and energy management to connected buildings and beyond"
     >
       <Stack gap={2}>
-        <PageSection title="Resources & References" id="resources">
+        <PageSection title="Resources & References" id="resources" backgroundColor="white">
           {/* Resources Section */}
           <Box
             sx={{
@@ -46,14 +46,14 @@ export default function UseCasesPage() {
       </Stack>
 
       {/* Domains and Trends Section */}
-      <PageSection title="Domains and Technology Trends">
-        <Stack gap={4}>
-          <Typography>
-            WoT technologies are designed to be domain-agnostic. The following domains and technology trends represent
+      <PageSection
+        title="Domains and Technology Trends"
+        backgroundColor="gray"
+        subtitle="WoT technologies are designed to be domain-agnostic. The following domains and technology trends represent
             areas where WoT provides significant value through standardized integration of heterogeneous devices and
-            services.
-          </Typography>
-
+            services."
+      >
+        <Stack gap={4}>
           <Stack gap={2} id="application-domains">
             <Typography level="h4">Application Domains</Typography>
             <Box
@@ -87,13 +87,14 @@ export default function UseCasesPage() {
       </PageSection>
 
       {/* Testimonials Section */}
-      <PageSection title="Testimonials" id="testimonials">
+      <PageSection
+        title="Testimonials"
+        subtitle="Leading technology companies and organizations endorse the Web of Things standard. Click on each to read
+            their testimonial."
+        id="testimonials"
+        backgroundColor="white"
+      >
         <Stack gap={4}>
-          <Typography>
-            Leading technology companies and organizations endorse the Web of Things standard. Click on each to read
-            their testimonial.
-          </Typography>
-
           <Stack gap={2}>
             <Typography level="h4">W3C Members</Typography>
             <AccordionGroup disableDivider>
