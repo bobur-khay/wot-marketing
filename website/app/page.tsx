@@ -7,11 +7,11 @@ import { HeroSection } from './_components/home-page-sections/HeroSection';
 import { IntegrationSection } from './_components/home-page-sections/IntegrationSection';
 import { RecentActivities } from './_components/home-page-sections/RecentActivities';
 import { WhyJoin } from './_components/home-page-sections/WhyJoin';
+import { PageLayout } from './_components/PageLayout';
 
 export default function HomePage() {
   return (
-    <main className="home">
-      <HeroSection />
+    <PageLayout customHero={<HeroSection />}>
       <IntegrationSection />
       <FeaturesSection />
       <DomainsSection />
@@ -19,6 +19,6 @@ export default function HomePage() {
       <WhyJoin />
       <RecentActivities />
       <CommunityCallToAction />
-    </main>
+    </PageLayout>
   );
 }

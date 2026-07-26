@@ -7,14 +7,19 @@ export const theme = extendTheme({
     'body-xs': {},
     'body-sm': {},
     'body-md': {},
-    'body-lg': {},
-    'title-sm': {},
+    'body-lg': {
+      lineHeight: '1.65',
+    },
+    'title-sm': {
+      fontWeight: '800',
+      letterSpacing: '0.14em',
+    },
     'title-md': {
       fontWeight: '600',
       lineHeight: '1.60',
     },
     'title-lg': {
-      fontWeight: 'normal',
+      fontWeight: '600',
       lineHeight: '1.65',
     },
     h4: {},
@@ -30,18 +35,22 @@ export const theme = extendTheme({
     },
   },
   fontSize: {
-    xs: '',
-    sm: '',
-    md: 'clamp(1rem, 1vw, 2rem)',
-    lg: 'clamp(1.5rem,2vw, 3em)',
-    xl: '',
-    xl2: 'clamp(2rem,4vw,4rem)',
-    xl3: 'clamp(3rem,6vw,5.5rem)',
+    sm: '0.72rem',
+    lg: 'clamp(1rem,1.7vw,1.22rem)',
+    xl2: 'clamp(2rem, 4vw, 4rem)',
+    xl3: 'clamp(3rem, 6vw, 5.5rem)',
     xl4: 'clamp(4rem, 8vw, 7rem)',
   },
   colorSchemes: {
     light: {
       palette: {
+        neutral: {
+          solidBg: 'white',
+          solidColor: '#07324a',
+          solidHoverBg: 'rgb(220,220,220)',
+          outlinedHoverBg: 'rgba(255,255,255,0.1)',
+          outlinedBorder: '#fff5',
+        },
         primary: {
           mainChannel: '0 90 156',
           plainColor: '#005A9C',

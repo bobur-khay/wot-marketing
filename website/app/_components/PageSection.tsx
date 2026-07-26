@@ -11,7 +11,7 @@ export function PageSection({
   sx,
   id,
 }: PropsWithChildren<{
-  title: ReactNode;
+  title?: ReactNode;
   subtitle?: ReactNode;
   sx?: SxProps;
   id?: string;

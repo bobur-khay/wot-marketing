@@ -4,18 +4,18 @@ import { NavBreadcrumbs } from './NavBreadcrumbs';
 import { Route } from 'next';
 import { SizeAdapter } from './SizeAdapter';
 
-export function PageLayout({
-  title,
-  banner,
-  subtitle,
-  breadcrumbs,
-  children,
-}: PropsWithChildren<{
-  title: string;
-  subtitle: ReactNode;
-  banner?: ReactNode;
-  breadcrumbs?: { startingPath: Route };
-}>) {
+type PageLayoutProps =
+  | {
+      title: string;
+      subtitle: ReactNode;
+      banner?: ReactNode;
+      breadcrumbs?: { startingPath: Route };
+    }
+  | {
+      customHero: ReactNode;
+    };
+
+export function PageLayout({ children, ...props }: PropsWithChildren<PageLayoutProps>) {
   return (
     // Page container
     <Stack>
@@ -42,18 +42,24 @@ export function PageLayout({
             maskImage: 'linear-gradient(90deg, transparent, #000)',
           }}
         />
-        <Stack gap={1.5} sx={{ maxWidth: '900px' }}>
-          {breadcrumbs && <NavBreadcrumbs startingPath={breadcrumbs.startingPath} currentPageTitle={title} />}
-          <Stack gap={0.5}>
-            <Typography level="h2" sx={{ color: 'white' }}>
-              {title}
-            </Typography>
-            <Typography level="body-lg" sx={{ color: '#c7e0e7' }}>
-              {subtitle}
-            </Typography>
+        {'customHero' in props ? (
+          props.customHero
+        ) : (
+          <Stack gap={1.5} sx={{ maxWidth: '900px' }}>
+            {props.breadcrumbs && (
+              <NavBreadcrumbs startingPath={props.breadcrumbs.startingPath} currentPageTitle={props.title} />
+            )}
+            <Stack gap={0.5}>
+              <Typography level="h2" sx={{ color: 'white' }}>
+                {props.title}
+              </Typography>
+              <Typography level="body-lg" sx={{ color: '#c7e0e7' }}>
+                {props.subtitle}
+              </Typography>
+            </Stack>
+            {props.banner && <Box mt={2}>{props.banner}</Box>}
           </Stack>
-          {banner && <Box mt={2}>{banner}</Box>}
-        </Stack>
+        )}
       </SizeAdapter>
 
       {/* Content */}

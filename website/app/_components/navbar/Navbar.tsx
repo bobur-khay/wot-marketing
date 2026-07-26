@@ -77,7 +77,7 @@ export function Navbar() {
           borderRadius: 0,
           borderBottom: '1px solid #dbe7ea',
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          px: { xs: 2, sm: 4 },
+          px: { xs: 2, sm: 4, xl: 12 },
           py: 1.25,
           position: 'relative',
           zIndex: 10, // Ensures the Card stays above the subnavigation
