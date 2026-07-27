@@ -62,7 +62,7 @@ export const theme = extendTheme({
           solidColor: '#07324a',
           solidHoverBg: 'rgb(220,220,220)',
           outlinedHoverBg: 'rgba(255,255,255,0.1)',
-          outlinedBorder: '#fff5',
+          outlinedBorder: '#dbe7e9',
         },
         primary: {
           mainChannel: '0 90 156',

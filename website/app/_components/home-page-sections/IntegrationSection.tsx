@@ -1,5 +1,7 @@
-import { ArrowRight, Building2, Check, Factory, Home, Layers3, Radio, Zap } from 'lucide-react';
+import { ArrowRight, Building2, Check, Factory, Home, Zap } from 'lucide-react';
 import { PageSection } from '../PageSection';
+import Card from '@mui/joy/Card/Card';
+import { Chip, Stack, Typography } from '@mui/joy';
 
 const things = [
   { name: 'Factory robot', protocol: 'OPC UA', icon: Factory },
@@ -20,7 +22,65 @@ export function IntegrationSection() {
         </>
       }
       subtitle="WoT describes what a connected thing can do in a common, machine-readable format without replacing the technologies underneath it."
-    ></PageSection>
+    >
+      <Card
+        variant="outlined"
+        sx={{
+          width: '100%',
+          flexDirection: {
+            xs: 'column',
+            sm: 'row',
+          },
+          alignItems: 'center',
+        }}
+      >
+        <Card
+          sx={{
+            backgroundColor: 'white',
+            p: 4,
+          }}
+        >
+          <Stack direction="row" gap={2} alignItems="start">
+            <Chip color="primary" sx={{ aspectRatio: '1 / 1' }}>
+              01
+            </Chip>
+            <Stack gap={0.5}>
+              <Typography color="primary" level="title-sm" sx={{ letterSpacing: '0.14rem' }}>
+                EXISTING THINGS
+              </Typography>
+              <Typography level="title-md">Keep every protocol</Typography>
+            </Stack>
+          </Stack>
+          <Stack gap={1}>
+            {things.map(({ name, protocol, icon: Icon }) => (
+              <Card
+                key={name}
+                sx={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  background: 'transparent',
+                  p: 1,
+                }}
+              >
+                <Stack direction="row" gap={2} alignItems="center">
+                  <Icon size={18} color="rgba(var(--joy-palette-primary-mainChannel) / 1)" />
+                  <Stack gap={0.5}>
+                    <Typography level="title-sm">{name}</Typography>
+                    <Typography level="body-xs">{protocol}</Typography>
+                  </Stack>
+                </Stack>
+                <Check size={16} color="rgba(var(--joy-palette-primary-mainChannel) / 1)" />
+              </Card>
+            ))}
+          </Stack>
+        </Card>
+        <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
+        <Card></Card>
+        <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
+        <Card></Card>
+      </Card>
+    </PageSection>
     // <section className="shell section">
     //   <header>
     //     <label>THE MISSING APPLICATION LAYER</label>

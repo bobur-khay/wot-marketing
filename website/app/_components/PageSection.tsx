@@ -26,7 +26,7 @@ export function PageSection({
   return (
     <SizeAdapter sx={{ py: 12, px: { xs: 2, sm: 4 }, backgroundColor: backgroundColorMap[backgroundColor], ...sx }}>
       <Stack>
-        <Stack pb={6} gap={2}>
+        <Stack pb={6} gap={2} sx={{ maxWidth: '850px' }}>
           {label && (
             <Typography level="title-sm" color="primary" sx={{ letterSpacing: '0.14rem', textTransform: 'uppercase' }}>
               {label}
