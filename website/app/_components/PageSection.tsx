@@ -4,6 +4,7 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { SizeAdapter } from './SizeAdapter';
 
 export function PageSection({
+  label,
   title,
   subtitle,
   children,
@@ -11,6 +12,7 @@ export function PageSection({
   sx,
   id,
 }: PropsWithChildren<{
+  label?: ReactNode;
   title?: ReactNode;
   subtitle?: ReactNode;
   sx?: SxProps;
@@ -25,10 +27,19 @@ export function PageSection({
     <SizeAdapter sx={{ py: 12, px: { xs: 2, sm: 4 }, backgroundColor: backgroundColorMap[backgroundColor], ...sx }}>
       <Stack>
         <Stack pb={6} gap={2}>
+          {label && (
+            <Typography level="title-sm" color="primary" sx={{ letterSpacing: '0.14rem', textTransform: 'uppercase' }}>
+              {label}
+            </Typography>
+          )}
           <Typography level="h3" id={id}>
             {title}
           </Typography>
-          {subtitle && <Typography level="body-lg">{subtitle}</Typography>}
+          {subtitle && (
+            <Typography level="body-lg" textColor="neutral.600">
+              {subtitle}
+            </Typography>
+          )}
         </Stack>
 
         {children}

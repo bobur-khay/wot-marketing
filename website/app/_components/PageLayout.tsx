@@ -20,31 +20,31 @@ export function PageLayout({ children, ...props }: PropsWithChildren<PageLayoutP
     // Page container
     <Stack>
       {/* Header */}
-      <SizeAdapter
-        sx={{
-          position: 'relative',
-          py: { xs: 4, sm: 14 },
-          px: { xs: 2, sm: 4 },
-          background: {
-            xs: 'radial-gradient(circle at 75% 70%, #08718e, #063750 42%, #061b2c 75%)',
-            sm: 'radial-gradient(circle at 80% 50%, #08718e, #063750 42%, #061b2c 75%)',
-          },
-        }}
-      >
-        {/* Background grid */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage:
-              'linear-gradient(#ffffff0c 1px, transparent 1px), linear-gradient(90deg, #ffffff0c 1px, transparent 1px)',
-            backgroundSize: '56px 56px',
-            maskImage: 'linear-gradient(90deg, transparent, #000)',
+      {'customHero' in props ? (
+        props.customHero
+      ) : (
+        <SizeAdapter
+          sx={{
+            position: 'relative',
+            py: { xs: 4, sm: 14 },
+            px: { xs: 2, sm: 4 },
+            background: {
+              xs: 'radial-gradient(circle at 95% 10%, #08718e, #063750 42%, #061b2c 75%)',
+              sm: 'radial-gradient(circle at 85% 35%, #08718e, #063750 42%, #061b2c 75%)',
+            },
           }}
-        />
-        {'customHero' in props ? (
-          props.customHero
-        ) : (
+        >
+          {/* Background grid */}
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage:
+                'linear-gradient(#ffffff0c 1px, transparent 1px), linear-gradient(90deg, #ffffff0c 1px, transparent 1px)',
+              backgroundSize: { xs: '48px 48px', sm: '56px 56px' },
+              maskImage: 'linear-gradient(90deg, transparent, #000)',
+            }}
+          />
           <Stack gap={1.5} sx={{ maxWidth: '900px' }}>
             {props.breadcrumbs && (
               <NavBreadcrumbs startingPath={props.breadcrumbs.startingPath} currentPageTitle={props.title} />
@@ -59,8 +59,8 @@ export function PageLayout({ children, ...props }: PropsWithChildren<PageLayoutP
             </Stack>
             {props.banner && <Box mt={2}>{props.banner}</Box>}
           </Stack>
-        )}
-      </SizeAdapter>
+        </SizeAdapter>
+      )}
 
       {/* Content */}
       <Stack alignItems="center" sx={{ width: '100%' }}>

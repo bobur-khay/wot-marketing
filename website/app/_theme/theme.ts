@@ -34,6 +34,8 @@ export const theme = extendTheme({
     h4: {},
     h3: {
       letterSpacing: '-.04em',
+      lineHeight: '1.05',
+      color: 'var(--joy-palette-neutral-700, #171A1C)',
     },
     h2: {
       letterSpacing: '-.055em',
@@ -46,6 +48,7 @@ export const theme = extendTheme({
   fontSize: {
     xs: '0.67rem',
     sm: '0.72rem',
+    md: 'clamp(0.8rem, 1.5vw, 1rem)',
     lg: 'clamp(1rem,1.7vw,1.22rem)',
     xl2: 'clamp(2rem, 4vw, 4rem)',
     xl3: 'clamp(3rem, 6vw, 5.5rem)',
