@@ -65,9 +65,7 @@ export const theme = extendTheme({
           outlinedBorder: '#dbe7e9',
         },
         primary: {
-          mainChannel: '0 90 156',
-          plainColor: '#005A9C',
-          solidBg: '#005A9C',
+          500: '#005A9C',
           solidHoverBg: '#004578',
         },
       },
