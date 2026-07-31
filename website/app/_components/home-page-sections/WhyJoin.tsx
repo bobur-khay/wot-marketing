@@ -38,7 +38,7 @@ export function WhyJoin() {
             startDecorator={<Image src={DiscordIcon} alt="Discord" width={24} />}
             external_url="https://discord.gg/WP3MqCfKQ"
           >
-            Follow us on Discord
+            Join the discussion
           </LinkButton>
           <LinkButton
             fullWidth
