@@ -1,16 +1,5 @@
-import {
-  ArrowRight,
-  Building2,
-  Code,
-  Factory,
-  FileBracesCorner,
-  Globe2,
-  House,
-  PlugZap,
-  ShieldCheck,
-  Zap,
-} from 'lucide-react';
-import { ButtonGroup, Card, Chip, Stack, Typography } from '@mui/joy';
+import { ArrowRight } from 'lucide-react';
+import { ButtonGroup, Stack, Typography } from '@mui/joy';
 import { LinkButton } from '../../LinkButton';
 import { SizeAdapter } from '../../SizeAdapter';
 import { WotOrbit } from './WotOrbit';
@@ -26,6 +15,7 @@ export function HeroSection() {
           xs: 'radial-gradient(circle at 45% 10%, #063750 22%, #061b2c 75%)',
           sm: 'radial-gradient(circle at 85% 35%, #063750 42%, #061b2c 75%)',
         },
+        overflow: 'hidden',
       }}
     >
       <Stack
@@ -36,7 +26,7 @@ export function HeroSection() {
         sx={{ rowGap: 6 }}
       >
         <Stack width={{ xs: '100%', lg: '50%' }} gap={3} sx={{ alignSelf: { xs: 'flex-start', lg: 'center' } }}>
-          <Typography level="title-sm" sx={{ color: '#8FD6DF' }}>
+          <Typography level="title-sm" sx={{ color: '#8FD6DF', letterSpacing: '0.14rem' }}>
             AN OPEN STANDARD FOR AN INTEROPERABLE IOT
           </Typography>
           <Stack>

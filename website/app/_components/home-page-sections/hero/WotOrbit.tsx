@@ -55,16 +55,16 @@ export function WotOrbit() {
         WEB OF THINGS
       </Chip>
       {/* Blurred Background */}
-      <Card
-        sx={{
+      <div
+        style={{
           background: 'radial-gradient(circle at 50% 20%, #00c8ff 0%, #0B6C85 100%)',
-          boxShadow: '0 -20px 500px 100px #0B6C85',
+          boxShadow: '0 -20px 500px 150px #0B6C85',
           borderRadius: '50%',
-          p: 0,
         }}
       >
         {/* Outer Orbit */}
         <Card
+          id="bob"
           sx={{
             padding: {
               xs: '60px',
@@ -75,7 +75,7 @@ export function WotOrbit() {
             position: 'relative',
             display: 'grid',
             placeItems: 'center',
-            border: '0.1px solid #9ce1e510',
+            border: '0.1px solid #16b5e28f',
             backdropFilter: 'blur(2px)',
           }}
         >
@@ -138,7 +138,7 @@ export function WotOrbit() {
             </Card>
           </Card>
         </Card>
-      </Card>
+      </div>
     </Stack>
   );
 }

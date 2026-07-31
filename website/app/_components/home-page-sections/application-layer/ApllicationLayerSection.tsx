@@ -1,7 +1,8 @@
-import { ArrowRight, Building2, Check, Factory, Home, Zap } from 'lucide-react';
-import { PageSection } from '../PageSection';
+import { ArrowRight, Building2, Check, Factory, Home, Layers3, Radio, Zap } from 'lucide-react';
+import { PageSection } from '../../PageSection';
 import Card from '@mui/joy/Card/Card';
-import { Chip, Stack, Typography } from '@mui/joy';
+import { Divider, Stack, Typography } from '@mui/joy';
+import { ApplicationLayerCard } from './ApplicationLayerCard';
 
 const things = [
   { name: 'Factory robot', protocol: 'OPC UA', icon: Factory },
@@ -10,7 +11,7 @@ const things = [
   { name: 'Home appliance', protocol: 'HTTP', icon: Home },
 ];
 
-export function IntegrationSection() {
+export function ApplicationLayerSection() {
   return (
     <PageSection
       label="THE MISSING APPLICATION LAYER"
@@ -27,30 +28,23 @@ export function IntegrationSection() {
         variant="outlined"
         sx={{
           width: '100%',
-          flexDirection: {
-            xs: 'column',
-            sm: 'row',
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: 'minmax(0, 1fr)',
+            md: 'minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr)',
           },
-          alignItems: 'center',
+          alignItems: 'stretch',
+          borderRadius: '18px',
+          backgroundColor: 'background.level1',
+          p: '10px',
         }}
       >
-        <Card
-          sx={{
-            backgroundColor: 'white',
-            p: 4,
-          }}
+        <ApplicationLayerCard
+          number="01"
+          title="EXISTING THINGS"
+          subtitle="Keep every protocol"
+          backgroundColor="white"
         >
-          <Stack direction="row" gap={2} alignItems="start">
-            <Chip color="primary" sx={{ aspectRatio: '1 / 1' }}>
-              01
-            </Chip>
-            <Stack gap={0.5}>
-              <Typography color="primary" level="title-sm" sx={{ letterSpacing: '0.14rem' }}>
-                EXISTING THINGS
-              </Typography>
-              <Typography level="title-md">Keep every protocol</Typography>
-            </Stack>
-          </Stack>
           <Stack gap={1}>
             {things.map(({ name, protocol, icon: Icon }) => (
               <Card
@@ -74,11 +68,70 @@ export function IntegrationSection() {
               </Card>
             ))}
           </Stack>
-        </Card>
-        <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
-        <Card></Card>
-        <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
-        <Card></Card>
+        </ApplicationLayerCard>
+        <Stack
+          justifyContent="center"
+          alignItems="center"
+          sx={{ '& > svg': { transform: { xs: 'rotate(90deg)', md: 'none' } } }}
+        >
+          <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
+        </Stack>
+        <ApplicationLayerCard
+          number="02"
+          title="WOT DESCRIPTION"
+          subtitle="Describe capabilities once"
+          backgroundColor="white"
+        >
+          <Card sx={{ p: 0 }}>
+            <Stack direction="row" gap={2} alignItems="center" justifyContent="space-between" sx={{ p: 1.5, pb: 0.5 }}>
+              <Stack direction="row" gap={2} alignItems="center">
+                <Radio size={18} color="rgba(var(--joy-palette-primary-mainChannel) / 1)" />
+                <Stack gap={0.5}>
+                  <Typography level="title-sm">SmartThermostat</Typography>
+                  <Typography level="body-xs">Thing Description</Typography>
+                </Stack>
+              </Stack>
+              <Typography level="body-xs">JSON-LD</Typography>
+            </Stack>
+            <Divider />
+            <Typography level="body-xs" sx={{ p: 1.5, pt: 0.5, fontFamily: 'monospace' }}>
+              {'{'}
+              <br />
+              &quot;properties&quot;: temperature
+              <br />
+              &quot;actions&quot;: setTarget
+              <br />
+              &quot;events&quot;: overheating
+              <br />
+              {'}'}
+            </Typography>
+          </Card>
+        </ApplicationLayerCard>
+        <Stack
+          justifyContent="center"
+          alignItems="center"
+          sx={{ '& > svg': { transform: { xs: 'rotate(90deg)', md: 'none' } } }}
+        >
+          <ArrowRight color="rgba(var(--joy-palette-primary-mainChannel) / 1)" size={18} />
+        </Stack>
+        <ApplicationLayerCard
+          number="03"
+          title="YOUR APPLICATION"
+          subtitle="Build against one model"
+          backgroundColor="white"
+        >
+          <Card sx={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+            <Stack alignItems="center" gap={1} sx={{ p: 2 }}>
+              <Layers3 size={48} color="rgba(var(--joy-palette-primary-mainChannel) / 1)" />
+              <Typography level="title-sm" sx={{ textAlign: 'center' }}>
+                One application layer
+              </Typography>
+              <Typography level="body-sm" sx={{ textAlign: 'center' }}>
+                Discover, read, write, and subscribe in the same way across every thing.
+              </Typography>
+            </Stack>
+          </Card>
+        </ApplicationLayerCard>
       </Card>
     </PageSection>
     // <section className="shell section">

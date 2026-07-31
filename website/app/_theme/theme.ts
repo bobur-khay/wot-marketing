@@ -8,7 +8,7 @@ declare module '@mui/joy/styles' {
 
 export const theme = extendTheme({
   fontFamily: { body: 'Arial, Helvetica, sans-serif', display: 'Arial, Helvetica, sans-serif' },
-  radius: { sm: '6px', md: '8px', lg: '12px' },
+  radius: { sm: '6px', md: '8px', lg: '18px' },
   typography: {
     'body-xs': {},
     'body-sm': {},
