@@ -19,14 +19,17 @@ export function HeroSection() {
       }}
     >
       <Stack
-        direction={{ xs: 'column-reverse', lg: 'row' }}
+        // Reverse order used so that the blurred background of the WotOrbit appears behind other elements
+        direction={{ xs: 'column', lg: 'row-reverse' }}
         px={{ xs: 1, sm: 2 }}
         justifyContent="space-between"
         alignItems="center"
         sx={{ rowGap: 6 }}
       >
+        <WotOrbit />
+
         <Stack width={{ xs: '100%', lg: '50%' }} gap={3} sx={{ alignSelf: { xs: 'flex-start', lg: 'center' } }}>
-          <Typography level="title-sm" sx={{ color: '#8FD6DF', letterSpacing: '0.14rem' }}>
+          <Typography level="title-sm" sx={{ color: '#8FD6DF', letterSpacing: '0.14rem', fontWeight: 800 }}>
             AN OPEN STANDARD FOR AN INTEROPERABLE IOT
           </Typography>
           <Stack>
@@ -59,7 +62,6 @@ export function HeroSection() {
             </LinkButton>
           </ButtonGroup>
         </Stack>
-        <WotOrbit />
       </Stack>
     </SizeAdapter>
   );

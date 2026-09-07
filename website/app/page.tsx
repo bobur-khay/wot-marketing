@@ -2,7 +2,7 @@ import './home.css';
 import { CommunityCallToAction } from './_components/home-page-sections/CommunityCallToAction';
 import { DomainsSection } from './_components/home-page-sections/DomainsSection';
 import { EcosystemSection } from './_components/home-page-sections/EcosystemSection';
-import { FeaturesSection } from './_components/home-page-sections/FeaturesSection';
+import { InteroperabilitySection } from './_components/home-page-sections/InteroperabilitySection';
 import { HeroSection } from './_components/home-page-sections/hero/HeroSection';
 import { ApplicationLayerSection } from './_components/home-page-sections/application-layer/ApllicationLayerSection';
 import { RecentActivities } from './_components/home-page-sections/RecentActivities';
@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <PageLayout customHero={<HeroSection />}>
       <ApplicationLayerSection />
-      <FeaturesSection />
+      <InteroperabilitySection />
       <DomainsSection />
       <EcosystemSection />
       <WhyJoin />

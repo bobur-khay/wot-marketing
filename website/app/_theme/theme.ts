@@ -18,10 +18,10 @@ export const theme = extendTheme({
     },
     'title-xs': {
       fontSize: 'var(--joy-fontSize-xs, 0.67rem)',
-      fontWeight: '700',
+      fontWeight: '600',
     },
     'title-sm': {
-      fontWeight: '800',
+      fontWeight: '700',
     },
     'title-md': {
       fontWeight: '600',
@@ -35,7 +35,6 @@ export const theme = extendTheme({
     h3: {
       letterSpacing: '-.04em',
       lineHeight: '1.05',
-      color: 'var(--joy-palette-neutral-700, #171A1C)',
     },
     h2: {
       letterSpacing: '-.055em',
@@ -63,10 +62,33 @@ export const theme = extendTheme({
           solidHoverBg: 'rgb(220,220,220)',
           outlinedHoverBg: 'rgba(255,255,255,0.1)',
           outlinedBorder: '#dbe7e9',
+          '800': '#071D2B',
         },
         primary: {
           500: '#005A9C',
           solidHoverBg: '#004578',
+        },
+      },
+    },
+    dark: {
+      palette: {
+        background: {
+          body: '#061B2C',
+          surface: '#052A3E',
+          level1: '#07354D',
+        },
+        neutral: {
+          solidBg: 'black',
+          solidColor: 'blue',
+          solidHoverBg: 'lightblue',
+          outlinedHoverBg: 'rgba(255,255,255,0.1)',
+          outlinedBorder: '#ffffff2b',
+        },
+        primary: {
+          400: 'rgb(158, 207, 255)',
+          solidHoverBg: '#004578',
+          softBg: '#1E485E',
+          softColor: 'RGBA(164, 208, 255)',
         },
       },
     },

@@ -15,7 +15,7 @@ const features: { title: string; description: string; Icon: LucideIcon }[] = [
   },
 ];
 
-export function FeaturesSection() {
+export function InteroperabilitySection() {
   return (
     <section className="features">
       <div className="shell">

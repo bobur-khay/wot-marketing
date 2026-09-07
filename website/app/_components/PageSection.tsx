@@ -28,7 +28,11 @@ export function PageSection({
       <Stack>
         <Stack pb={6} gap={2} sx={{ maxWidth: '850px' }}>
           {label && (
-            <Typography level="title-sm" color="primary" sx={{ letterSpacing: '0.14rem', textTransform: 'uppercase' }}>
+            <Typography
+              level="title-sm"
+              color="primary"
+              sx={{ letterSpacing: '0.14rem', textTransform: 'uppercase', fontWeight: 800 }}
+            >
               {label}
             </Typography>
           )}

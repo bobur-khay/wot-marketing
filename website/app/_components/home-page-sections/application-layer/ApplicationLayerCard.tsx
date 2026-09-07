@@ -5,29 +5,31 @@ export function ApplicationLayerCard({
   title,
   subtitle,
   children,
-  backgroundColor = 'white',
+  colorScheme,
 }: {
   number: string;
   title: string;
   subtitle: string;
-  backgroundColor?: string;
+  colorScheme?: 'light' | 'dark';
   children: React.ReactNode;
 }) {
   return (
     <Card
+      data-joy-color-scheme={colorScheme}
       sx={{
-        backgroundColor,
         p: 3,
         borderRadius: '12px',
+        backgroundColor: colorScheme === 'dark' ? 'background.level1' : 'background.body',
+        gap: 2,
       }}
       variant="soft"
     >
-      <Stack direction="row" gap={2} alignItems="start">
-        <Chip color="primary" sx={{ aspectRatio: '1 / 1' }}>
+      <Stack direction="row" gap={2} alignItems="center">
+        <Chip color="primary" sx={{ aspectRatio: '1 / 1', fontFamily: 'monospace', fontWeight: 'bold' }}>
           {number}
         </Chip>
-        <Stack gap={0.5}>
-          <Typography color="primary" level="title-sm" sx={{ letterSpacing: '0.14rem' }}>
+        <Stack gap={0.2}>
+          <Typography color="primary" level="title-sm" sx={{ letterSpacing: '0.14rem', fontWeight: 800 }}>
             {title}
           </Typography>
           <Typography level="title-md">{subtitle}</Typography>
